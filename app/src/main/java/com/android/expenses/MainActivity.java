@@ -2,16 +2,8 @@ package com.android.expenses;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -26,37 +18,37 @@ import java.util.HashMap;
 public class MainActivity extends ListActivity  implements android.view.View.OnClickListener{
 
     Button btnAdd,btnGetAll;
-    TextView student_Id;
+    TextView expense_Id;
 
     @Override
     public void onClick(View view) {
         if (view== findViewById(R.id.btnAdd)){
 
-            Intent intent = new Intent(this,StudentDetail.class);
-            intent.putExtra("student_Id",0);
+            Intent intent = new Intent(this,ExpenseDetail.class);
+            intent.putExtra("expense_Id",0);
             startActivity(intent);
 
         }else {
 
-            StudentRepo repo = new StudentRepo(this);
+            ExpenseRepo repo = new ExpenseRepo(this);
 
-            ArrayList<HashMap<String, String>> studentList =  repo.getStudentList();
-            if(studentList.size()!=0) {
+            ArrayList<HashMap<String, String>> expenseList =  repo.getExpenseList();
+            if(expenseList.size()!=0) {
                 ListView lv = getListView();
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                        student_Id = (TextView) view.findViewById(R.id.student_Id);
-                        String studentId = student_Id.getText().toString();
-                        Intent objIndent = new Intent(getApplicationContext(),StudentDetail.class);
-                        objIndent.putExtra("student_Id", Integer.parseInt( studentId));
+                        expense_Id = (TextView) view.findViewById(R.id.expense_Id);
+                        String expenseId = expense_Id.getText().toString();
+                        Intent objIndent = new Intent(getApplicationContext(),ExpenseDetail.class);
+                        objIndent.putExtra("expense_Id", Integer.parseInt( expenseId));
                         startActivity(objIndent);
                     }
                 });
-                ListAdapter adapter = new SimpleAdapter( MainActivity.this,studentList, R.layout.view_student_entry, new String[] { "id","name"}, new int[] {R.id.student_Id, R.id.student_name});
+                ListAdapter adapter = new SimpleAdapter( MainActivity.this,expenseList, R.layout.view_expense_entry, new String[] { "id","name"}, new int[] {R.id.expense_Id, R.id.expense_name});
                 setListAdapter(adapter);
             }else{
-                Toast.makeText(this,"No student!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"No expense!",Toast.LENGTH_SHORT).show();
             }
 
         }

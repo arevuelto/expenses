@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Email"
+        android:text="Detail"
         android:id="@+id/textView2"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -34,9 +34,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Age"
+        android:text="Prize"
         android:id="@+id/textView3"
         android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Date"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="29dp" />
@@ -55,9 +67,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="textLongMessage"
         android:ems="10"
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextDetail"
         android:layout_above="@+id/textView3"
         android:layout_toRightOf="@+id/textView"
         android:layout_alignRight="@+id/editTextName"
@@ -66,14 +78,26 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editTextAge"
+        android:id="@+id/editTextPrize"
         android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/editTextEmail"
-        android:layout_alignStart="@+id/editTextEmail"
-        android:layout_alignRight="@+id/editTextEmail"
-        android:layout_alignEnd="@+id/editTextEmail" />
+        android:layout_alignLeft="@+id/editTextDetail"
+        android:layout_alignStart="@+id/editTextDetail"
+        android:layout_alignRight="@+id/editTextDetail"
+        android:layout_alignEnd="@+id/editTextDetail" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="datetime"
+        android:ems="10"
+        android:id="@+id/editTextDateExpense"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/editTextPrize"
+        android:layout_alignStart="@+id/editTextPrize"
+        android:layout_alignRight="@+id/editTextPrize"
+        android:layout_alignEnd="@+id/editTextPrize" />
 
     <Button
         android:layout_width="wrap_content"

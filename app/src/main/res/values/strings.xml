@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Expenses</string>
-    <string name="title_activity_student_detail">Details</string>
+    <string name="title_activity_expense_detail">Details</string>
 </resources>

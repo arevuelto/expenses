@@ -24,20 +24,21 @@ public class DBHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //All necessary tables you like to create will create here
 
-        String CREATE_TABLE_STUDENT = "CREATE TABLE " + Student.TABLE  + "("
-                + Student.KEY_ID  + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
-                + Student.KEY_name + " TEXT, "
-                + Student.KEY_age + " INTEGER, "
-                + Student.KEY_email + " TEXT )";
+        String CREATE_TABLE_EXPENSE = "CREATE TABLE " + Expense.TABLE  + "("
+                + Expense.KEY_ID  + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
+                + Expense.KEY_name + " TEXT, "
+                + Expense.KEY_prize + " DOUBLE, "
+                + Expense.KEY_dateExpense + " TIMESTAMP, "
+                + Expense.KEY_detail + " TEXT )";
 
-        db.execSQL(CREATE_TABLE_STUDENT);
+        db.execSQL(CREATE_TABLE_EXPENSE);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed, all data will be gone!!!
-        db.execSQL("DROP TABLE IF EXISTS " + Student.TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + Expense.TABLE);
 
         // Create tables again
         onCreate(db);
